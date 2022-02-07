@@ -4,6 +4,8 @@
 
 people=<List of people from .csv>
 
+LIST="${LIST}${LIST:+,}${NEWVAL}"
+
 for person in $people
 do
 	op user invite --name "[NAME]" --email "[EMAIL]"
