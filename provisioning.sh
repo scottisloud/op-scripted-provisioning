@@ -16,7 +16,7 @@ input_file=people.csv
 
 while IFS=, read -r input_name input_email 
 do
-	op1 create user $input_email "$input_name"
+	op1 create user $input_email "$input_name" | jq >> provision-log.json
 
 done < $input_file
 
