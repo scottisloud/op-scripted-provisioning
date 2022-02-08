@@ -2,6 +2,15 @@
 
 This script uses 1Password's Command Line Tool v2, in combination with Bash, to read names and email addresses from a file on disk and invite each person on the last to join a 1Password Business account. 
 
+## Testing Configuration
+Please create a file in the same directory with the following
+```
+#!/bin/bash/
+SECRETKEY=[service account Secret Key]
+ACCOUNTPASSWORD=[service account account password]
+EMAIL=[service account email]
+URL=[1Password sign-in URL]
+```
 
 ## Account setup
 1. Create a dedicated 1Password user that can be logged in on the server or device on which you intend to run the script. Ideally this user uses a shared email (e.g., provisioning@example.com) and is not a general-purpose user anyone in your organization is using on a day-to-day basis. Save the credentials for this user as a Login item in the appropriate vault in your 1Password account. 
