@@ -4,14 +4,50 @@
 
 
 # TEST ENVIRONMENT: Set environment vars
+
 . ./creds.sh
 
 # Sign in by echoing out a password 
 
-eval $(echo $ACCOUNTPASSWORD | op signin $URL $EMAIL $SECRETKEY)
+eval $(echo $ACCOUNTPASSWORD | op1 signin $URL $EMAIL $SECRETKEY)
 
-# read each line of a csv structured as `firstname lastname, email`. create the user, make the json pretty with jq, then append to log file. 
-while IFS=, read -r name email
+# Set input data
+input_file=people.csv
+
+while IFS=, read -r input_name input_email 
 do
-	op1 create user $email $name | jq >> provision-log.json
-done < people.csv
+	names+=("$input_name")
+	emails+=("$input_email")
+done < $input_file
+
+
+echo $names[*]
+
+# while IFS=, read -r in_name in_email
+# do
+# 	names+=("$in_name")
+# 	emails+=("$in_email")
+# done < $input_file
+
+
+# for ((i=0; i<=${#names[@]}; i++))
+# do
+# 	echo $i
+# done 
+
+
+# for name in $names
+# do
+# 	for email in $emails
+# 	do
+# 		echo "'$name'" "'$email'"
+# 	done
+# done
+
+
+
+# while IFS=, read -r name email
+# do
+# 	op1 create user ${email} ${name} | jq >> provision-log.json
+# 	echo ${email}
+# done < $input_file
