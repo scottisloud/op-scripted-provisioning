@@ -3,7 +3,7 @@
 This script uses 1Password's Command Line Tool v2, in combination with Bash, to read names and email addresses from a file on disk and invite each person on the last to join a 1Password Business account. 
 
 ## Testing Configuration
-Please create a file in the same directory with the following
+Please create a file called `creds.sh` in the same directory with the following
 ```
 #!/bin/bash/
 SECRETKEY=[service account Secret Key]
