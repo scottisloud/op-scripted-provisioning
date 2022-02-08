@@ -16,12 +16,19 @@ input_file=people.csv
 
 while IFS=, read -r input_name input_email 
 do
-	names+=("$input_name")
-	emails+=("$input_email")
+	op1 create user $input_email "$input_name"
+
 done < $input_file
 
 
-echo $names[*]
+
+# while IFS=, read -r input_name input_email 
+# do
+# 	names+=("$input_name")
+# 	emails+=("$input_email")
+# done < $input_file
+
+
 
 # while IFS=, read -r in_name in_email
 # do
